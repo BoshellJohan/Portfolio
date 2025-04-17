@@ -1,0 +1,68 @@
+---
+import LinkedIn from './icons/LinkedIn.astro'
+import Github from './icons/Github.astro'
+import Mail from './icons/Mail.astro'
+
+
+const SOCIAL = [
+    {
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/johan-boshell-longas-076593283/",
+        icon: LinkedIn,
+        class: "text-[#0a66c2] bg-white hover:bg-[#dce0e6]"
+    },
+    {
+        name: "Github",
+        link: "https://github.com/BoshellJohan",
+        icon: Github,
+        class: "text-white bg-[#000] hover:bg-[#141414]"
+    },
+    {
+        name: "CV",
+        link: "/public/cv.pdf",
+        icon: null,
+        class: "text-dark-100 bg-[#56aeb0] hover:bg-[#60bebf]"
+    },
+
+    {
+        name: "johan.boshell@utp.edu.co",
+        link: "",
+        icon: Mail,
+        class: "text-white bg-[#cd4441] hover:bg-[#c74e4c]"
+    }
+]
+
+---
+
+<article class="mx-auto flex flex-col items-center gap-8 bg-[#240046] text-white rounded-lg px-8 py-10 mb-16 shadow-lg">
+    <!-- Imagen de perfil -->
+    <div class="flex flex-col md:flex-row items-center gap-8">
+        <img
+          src="/img/profile.jpg"
+          alt="Foto de Johan"
+          class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md"
+        />
+        <!-- Texto del perfil -->
+        <div class="text-left">
+          <h1 class="text-2xl font-semibold mb-4">Desarrollador Web de Pereira, Colombia</h1>
+          <p class="text-base leading-relaxed max-w-xl">
+            Soy un apasionado por el desarrollo web, enfocado en crear experiencias atractivas y funcionales usando tecnologías modernas como JavaScript, Astro, Tailwind y más.
+            Me encanta aprender, resolver problemas, y construir productos que marcan la diferencia.
+          </p>
+        </div>
+    </div>
+
+    <!-- Tecnologías -->
+    <ul class="flex flex-wrap gap-2 self-start">
+        {SOCIAL.map((tag) => (
+            <li>
+                <span class={`px-3.5 py-2 rounded-lg items-center flex gap-x-2 text-s font-bold cursor-pointer ${tag.class}`}>
+                    {tag.icon && <tag.icon class="size-4"/>}
+
+                    {tag.name != "CV" && <a href={tag.link} target="_blank">{tag.name}</a>}
+                    {tag.name == "CV" && <a href={tag.link} target="_blank" download="CV-JohanBoshell">{tag.name}</a>}
+                </span>
+            </li>
+        ))}
+    </ul>
+</article>
