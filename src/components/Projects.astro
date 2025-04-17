@@ -1,88 +1,97 @@
 ---
-import Javascript from "./icons/Javascript.astro"
-import CSS from "./icons/CSS.astro"
-import Button from './Button.astro'
+import "../styles/Card.css";
+import Javascript from "./icons/Javascript.astro";
+import CSS from "./icons/CSS.astro";
+import Button from "./Button.astro";
 
 const TAGS = {
     JAVASCRIPT: {
         name: "JavaScript",
         class: "bg-[#5A189A] text-white",
-        icon: Javascript
+        icon: Javascript,
     },
     CSS: {
         name: "CSS",
         class: "bg-[#5A189A] text-white",
-        icon: CSS
-    }
-}
-
+        icon: CSS,
+    },
+};
 
 const PROJECTS = [
     {
+        title: "Weather Query",
+        description:
+            "Enter a city and get its weather! This app uses the OpenWeather API to show a quick summary of the weather forecast.",
+        link: "https://weatherapi-boshell.netlify.app/",
+        github: "https://github.com/BoshellJohan/Weather_API",
+        image: "/img/weatherQuery.png",
+        tags: [TAGS.JAVASCRIPT, TAGS.CSS],
+    },
+
+    {
+        title: "MineSweeper",
+        description:
+            "A classic Minesweeper game built using vanilla JavaScript, HTML, and CSS — no frameworks, just raw logic and DOM manipulation.",
+        link: "https://minesweeper-boshell.netlify.app/",
+        github: "https://github.com/BoshellJohan/Minesweeper",
+        image: "/img/Minesweeper.png",
+        tags: [TAGS.JAVASCRIPT, TAGS.CSS],
+    },
+    {
         title: "Tierlist Maker",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, nostrum!",
-        link: "hola",
-        github: "pero",
-        image: "/img/project.png",
-        tags: [TAGS.JAVASCRIPT, TAGS.CSS]
-    },
-
-    {
-        title: "Perro",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, nostrum!",
-        link: "hola",
-        github: "pero",
-        image: "/img/project.png",
-        tags: [TAGS.JAVASCRIPT, TAGS.CSS]
-    },
-
-    {
-        title: "Buscaminas",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, nostrum!",
-        link: "hola",
-        github: "pero",
-        image: "/img/project.png",
-        tags: [TAGS.JAVASCRIPT, TAGS.CSS]
+            "An interactive Tier List Maker built with HTML, CSS, and JavaScript that lets users upload images, organize them into ranked tiers, and export the final tier list as an image. Ideal for ranking characters, games, foods, or anything visual—completely offline and fully customizable",
+        link: "https://tierlistmaker-boshelljohan.netlify.app/",
+        github: "https://github.com/BoshellJohan",
+        image: "/img/tierlist-maker.png",
+        tags: [TAGS.JAVASCRIPT, TAGS.CSS],
     }
-]
+];
 ---
 
-{
-    PROJECTS.map(({ image, title, description, tags }) => (
-      <article class="flex flex-col justify-center items-start mb-16 bg-[#240046] pt-6 px-6 pb-2 rounded-lg">
-        <h1 class="text-3xl font-bold mb-2.5">{title}</h1>
-        <p class="text-base">{description}</p>
-        <ul class="flex flex-wrap gap-x-4 mt-2">
-          {tags.map((tag) => (
-            <li>
-                <span class={`px-2.5 py-2 rounded-lg  flex gap-x-2 text-xs justify-center items-center ${tag.class}`}>
-                    <tag.icon class="size-4"/>
-                    <p class="font-semibold">{tag.name}</p>
-                </span>
-            </li>
-          ))}
-        </ul>
-        <img class="mt-2 rounded shadow-2xl shadow-white/10" src={image} alt={title} />
-        <div class="flex flex-row gap-x-3 mt-2.5">
-            <Button><a href="">Ver código</a></Button>
-            <Button><a href="">Visitar sitio</a></Button>
-        </div>
-      </article>
-    ))
-  }
+<main class="w-full max-w-[1000px] mx-auto px-4">
+    <ul id="cards" class="flex flex-col gap-[20rem] pb-[10vh]">
+      {
+        PROJECTS.map(({ image, title, description, tags }, idx) => (
+          <li
+            class="sticky top-[10vh]"
+            id={`card_${idx + 1}`}
+            style={`--index:${idx + 1};`}
+          >
+            <article
+              class="flex flex-col bg-[#240046] rounded-lg p-6 shadow-2xl text-white min-h-auto"
+            >
+              <div>
+                <h1 class="text-3xl font-bold mb-2.5">{title}</h1>
+                <p class="text-base leading-relaxed">{description}</p>
+                <ul class="flex flex-wrap gap-3 mt-4">
+                  {tags.map((tag) => (
+                    <li>
+                      <span
+                        class={`px-3 py-2 rounded-lg flex gap-2 text-xs justify-center items-center ${tag.class}`}
+                      >
+                        <tag.icon class="size-4" />
+                        <p class="font-semibold">{tag.name}</p>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-  <style>
-    .fade-in{
-        opacity: 0;
-        animation: show 4s ease-in-out;
-    }
+              <img
+                class="mt-4 rounded-xl object-contain max-h-[300px] w-full"
+                src={image}
+                alt={title}
+              />
 
-    @keyframes show {
-        to {
-            opacity: 1;
-        }
-    }
-  </style>
+              <div class="flex gap-4 mt-4">
+                <Button><a href="#">Ver código</a></Button>
+                <Button><a href="#">Visitar sitio</a></Button>
+              </div>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+
