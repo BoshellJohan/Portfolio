@@ -1,5 +1,4 @@
 ---
-import "../styles/Card.css";
 import Javascript from "./icons/Javascript.astro";
 import CSS from "./icons/CSS.astro";
 import Button from "./Button.astro";
@@ -52,7 +51,7 @@ const PROJECTS = [
 <main class="w-full max-w-[1000px] mx-auto px-4">
     <ul id="cards" class="flex flex-col gap-[20rem] pb-[10vh]">
       {
-        PROJECTS.map(({ image, title, description, tags }, idx) => (
+        PROJECTS.map(({ image, title, description, tags, link, github }, idx) => (
           <li
             class="sticky top-[10vh]"
             id={`card_${idx + 1}`}
@@ -85,8 +84,8 @@ const PROJECTS = [
               />
 
               <div class="flex gap-4 mt-4">
-                <Button><a href="#">Ver código</a></Button>
-                <Button><a href="#">Visitar sitio</a></Button>
+                <Button><a href={github} target="_blank">Ver código</a></Button>
+                <Button><a href={link} target="_blank">Visitar sitio</a></Button>
               </div>
             </article>
           </li>
