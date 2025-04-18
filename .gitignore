@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+.out/
+.next/
+.build/
+.vite/
+
+# Astro-specific
+.cache/
+
+# Environment variables
+.env
+.env.*.local
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor configs
+.vscode/
+.idea/
+*.swp
+
+# Dependencies lock files (optional, if you don’t want to commit them)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Optional: Netlify or Vercel
+.netlify/
+.vercel/
+
+# Optional: local images or uploads
+public/uploads/

@@ -4,6 +4,8 @@ import CSS from "./icons/CSS.astro";
 import HTML from "./icons/HTML.astro";
 import Tailwind from "./icons/Tailwind.astro";
 import NextJS from "./icons/NextJS.astro";
+import React from "./icons/React.astro"
+
 import Button from "./Button.astro";
 
 const TAGS = {
@@ -32,6 +34,11 @@ const TAGS = {
     class: "bg-[#0F172A] text-white",
     icon: HTML,
   },
+  REACT: {
+    name: "React",
+    class: "bg-[#0F172A] text-white",
+    icon: React,
+  },
 };
 
 const PROJECTS = [
@@ -43,6 +50,15 @@ const PROJECTS = [
     github: "https://github.com/BoshellJohan/Weather_API",
     image: "/img/weatherQuery.png",
     tags: [TAGS.NEXTJS, TAGS.TAILWIND],
+  },
+  {
+    title: "Grocery Bud",
+    description:
+      "A minimal React app to manage your grocery list. Add, edit, or delete items with ease — all saved in your browser using local storage.",
+    link: "https://grocerybud-boshelljohan.netlify.app/", // reemplaza con tu URL
+    github: "https://github.com/BoshellJohan/GroceryBud",
+    image: "/img/GroceryBud.png", // asegúrate de que coincida con tu carpeta
+    tags: [TAGS.REACT],
   },
 
   {
