@@ -5,13 +5,10 @@ import Badge from "./Badge.astro";
 
 <article id="contact" class="w-full flex flex-col items-center gap-2 text-white rounded-lg py-0 mb-16 shadow-lg">
     <div class="w-full flex gap-2 flex-row mb-2">
-        <input
-            id="emailInput"
-            type="text"
-            value="johan.boshell@utp.edu.co"
-            disabled
+        <p
+            id="emailPar"
             class="text-light p-2.5 rounded-lg border-solid border-[#5A189A] border-2 w-8/10"
-        />
+        >johan.boshell@utp.edu.co</p>
         <span
             onclick="handleClick()"
             class="cursor-pointer rounded-lg flex justify-center align-center py-2.5  dark:bg-[#5A189A] dark:hover:bg-[#7B2CBF] dark:focus:ring-purple-900 w-2/10"
@@ -28,7 +25,7 @@ import Badge from "./Badge.astro";
 
 <script is:inline>
     function handleClick() {
-        const input = document.getElementById("emailInput");
+        const input = document.getElementById("emailPar");
         const badgeContainer = document.getElementById("badgeContainer");
 
         if (input && badgeContainer) {
