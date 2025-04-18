@@ -1,96 +1,118 @@
 ---
 import Javascript from "./icons/Javascript.astro";
 import CSS from "./icons/CSS.astro";
+import HTML from "./icons/HTML.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import NextJS from "./icons/NextJS.astro";
 import Button from "./Button.astro";
 
 const TAGS = {
-    JAVASCRIPT: {
-        name: "JavaScript",
-        class: "bg-[#5A189A] text-white",
-        icon: Javascript,
-    },
-    CSS: {
-        name: "CSS",
-        class: "bg-[#5A189A] text-white",
-        icon: CSS,
-    },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#0F172A] text-white",
+    icon: Javascript,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-[#111827] text-white",
+    icon: CSS,
+  },
+  TAILWIND: {
+    name: "Tailwind",
+    class: "bg-[#0F172A] text-white",
+    icon: Tailwind,
+  },
+  NEXTJS: {
+    name: "NextJS",
+    class: "bg-[#F3F4F6] text-[#000]",
+    icon: NextJS,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-[#0F172A] text-white",
+    icon: HTML,
+  },
 };
 
 const PROJECTS = [
-    {
-        title: "Weather Query",
-        description:
-            "Enter a city and get its weather! This app uses the OpenWeather API to show a quick summary of the weather forecast.",
-        link: "https://weatherapi-boshell.netlify.app/",
-        github: "https://github.com/BoshellJohan/Weather_API",
-        image: "/img/weatherQuery.png",
-        tags: [TAGS.JAVASCRIPT, TAGS.CSS],
-    },
+  {
+    title: "Weather Query",
+    description:
+      "Enter a city and get its weather! This app uses the OpenWeather API to show a quick summary of the weather forecast.",
+    link: "https://weatherapi-boshell.netlify.app/",
+    github: "https://github.com/BoshellJohan/Weather_API",
+    image: "/img/weatherQuery.png",
+    tags: [TAGS.NEXTJS, TAGS.TAILWIND],
+  },
 
-    {
-        title: "MineSweeper",
-        description:
-            "A classic Minesweeper game built using vanilla JavaScript, HTML, and CSS — no frameworks, just raw logic and DOM manipulation.",
-        link: "https://minesweeper-boshell.netlify.app/",
-        github: "https://github.com/BoshellJohan/Minesweeper",
-        image: "/img/Minesweeper.png",
-        tags: [TAGS.JAVASCRIPT, TAGS.CSS],
-    },
-    {
-        title: "Tierlist Maker",
-        description:
-            "An interactive Tier List Maker built with HTML, CSS, and JavaScript that lets users upload images, organize them into ranked tiers, and export the final tier list as an image. Ideal for ranking characters, games, foods, or anything visual—completely offline and fully customizable",
-        link: "https://tierlistmaker-boshelljohan.netlify.app/",
-        github: "https://github.com/BoshellJohan",
-        image: "/img/tierlist-maker.png",
-        tags: [TAGS.JAVASCRIPT, TAGS.CSS],
-    }
+  {
+    title: "MineSweeper",
+    description:
+      "A classic Minesweeper game built using vanilla JavaScript, HTML, and CSS — no frameworks, just raw logic and DOM manipulation.",
+    link: "https://minesweeper-boshell.netlify.app/",
+    github: "https://github.com/BoshellJohan/Minesweeper",
+    image: "/img/Minesweeper.png",
+    tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Tierlist Maker",
+    description:
+      "An interactive Tier List Maker built with HTML, CSS, and JavaScript that lets users upload images, organize them into ranked tiers, and export the final tier list as an image. Ideal for ranking characters, games, foods, or anything visual—completely offline and fully customizable",
+    link: "https://tierlistmaker-boshelljohan.netlify.app/",
+    github: "https://github.com/BoshellJohan",
+    image: "/img/tierlist-maker.png",
+    tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
+  },
 ];
 ---
 
 <main class="w-full max-w-[1000px] mx-auto px-4">
-    <ul id="cards" class="flex flex-col gap-[20rem] pb-[10vh]">
-      {
-        PROJECTS.map(({ image, title, description, tags, link, github }, idx) => (
-          <li
-            class="sticky top-[10vh]"
-            id={`card_${idx + 1}`}
-            style={`--index:${idx + 1};`}
-          >
-            <article
-              class="flex flex-col bg-[#240046] rounded-lg p-6 shadow-2xl text-white min-h-auto"
-            >
-              <div>
-                <h1 class="text-3xl font-bold mb-2.5">{title}</h1>
-                <p class="text-base leading-relaxed">{description}</p>
-                <ul class="flex flex-wrap gap-3 mt-4">
-                  {tags.map((tag) => (
-                    <li>
-                      <span
-                        class={`px-3 py-2 rounded-lg flex gap-2 text-xs justify-center items-center ${tag.class}`}
-                      >
-                        <tag.icon class="size-4" />
-                        <p class="font-semibold">{tag.name}</p>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+  <ul id="cards" class="flex flex-col gap-[20rem] pb-[10vh]">
+    {
+      PROJECTS.map(({ image, title, description, tags, link, github }, idx) => (
+        <li
+          class="sticky top-[10vh]"
+          id={`card_${idx + 1}`}
+          style={`--index:${idx + 1};`}
+        >
+          <article class="flex flex-col bg-[#240046] rounded-lg p-6 shadow-2xl text-white min-h-auto">
+            <div>
+              <h1 class="text-3xl font-bold mb-2.5">{title}</h1>
+              <p class="text-base leading-relaxed">{description}</p>
+              <ul class="flex flex-wrap gap-3 mt-4">
+                {tags.map((tag) => (
+                  <li>
+                    <span
+                      class={`px-3 py-2 rounded-lg flex gap-2 text-xs justify-center items-center ${tag.class}`}
+                    >
+                      <tag.icon class="size-4" />
+                      <p class="font-semibold">{tag.name}</p>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
+            <div class="rounded-xl overflow-hidden max-h-[300px] w-full mt-2 mx-1">
               <img
-                class="mt-4 rounded-xl object-contain max-h-[300px] w-full"
+                class="object-contain w-full h-full"
                 src={image}
                 alt={title}
               />
+            </div>
 
-              <div class="flex gap-4 mt-4">
-                <Button><a href={github} target="_blank">Ver código</a></Button>
-                <Button><a href={link} target="_blank">Visitar sitio</a></Button>
-              </div>
-            </article>
-          </li>
-        ))
-      }
-    </ul>
-  </main>
+            <div class="flex gap-4 mt-4">
+              <a href={github} target="_blank" rel="noopener noreferrer">
+                <Button>View Code</Button>
+              </a>
 
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                <Button>Visit Website</Button>
+              </a>
+            </div>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+</main>
