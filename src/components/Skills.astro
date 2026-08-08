@@ -1,0 +1,32 @@
+---
+import AstroIcon from "./icons/Astro.astro";
+import TypeScript from "./icons/TypeScript.astro";
+import Git from "./icons/Git.astro";
+import Javascript from "./icons/Javascript.astro";
+import CSS from "./icons/CSS.astro";
+import HTML from "./icons/HTML.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import NextJS from "./icons/NextJS.astro";
+import React from "./icons/React.astro";
+
+const SKILLS = [
+  { name: "JavaScript", icon: Javascript },
+  { name: "TypeScript", icon: TypeScript },
+  { name: "React", icon: React },
+  { name: "Next.js", icon: NextJS },
+  { name: "Astro", icon: AstroIcon },
+  { name: "Tailwind CSS", icon: Tailwind },
+  { name: "HTML", icon: HTML },
+  { name: "CSS", icon: CSS },
+  { name: "Git", icon: Git },
+];
+---
+
+<ul class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+  {SKILLS.map(({ name, icon: Icon }) => (
+    <li class="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-card-foreground">
+      <Icon class="size-6 shrink-0" aria-hidden="true" />
+      <span class="font-medium">{name}</span>
+    </li>
+  ))}
+</ul>
