@@ -1,0 +1,38 @@
+---
+import Sun from './icons/Sun.astro'
+import Moon from './icons/Moon.astro'
+---
+
+<button
+    id="theme-toggle"
+    type="button"
+    class="inline-flex items-center justify-center size-11 rounded-xl hover:bg-muted transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    aria-label="Switch to dark theme"
+>
+    <Sun class="size-5 hidden dark:block" aria-hidden="true" />
+    <Moon class="size-5 block dark:hidden" aria-hidden="true" />
+</button>
+
+<script is:inline>
+    (function () {
+        var STORAGE_KEY = 'theme';
+        var toggle = document.getElementById('theme-toggle');
+
+        function labelFor(theme) {
+            return theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+        }
+
+        function currentTheme() {
+            return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+
+        toggle.setAttribute('aria-label', labelFor(currentTheme()));
+
+        toggle.addEventListener('click', function () {
+            var next = currentTheme() === 'dark' ? 'light' : 'dark';
+            document.documentElement.classList.toggle('dark', next === 'dark');
+            localStorage.setItem(STORAGE_KEY, next);
+            toggle.setAttribute('aria-label', labelFor(next));
+        });
+    })();
+</script>
