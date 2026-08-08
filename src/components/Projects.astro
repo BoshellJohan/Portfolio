@@ -11,32 +11,32 @@ import Button from "./Button.astro";
 const TAGS = {
   JAVASCRIPT: {
     name: "JavaScript",
-    class: "bg-[#0F172A] text-white",
+    class: "bg-muted text-muted-foreground",
     icon: Javascript,
   },
   CSS: {
     name: "CSS",
-    class: "bg-[#111827] text-white",
+    class: "bg-muted text-muted-foreground",
     icon: CSS,
   },
   TAILWIND: {
     name: "Tailwind",
-    class: "bg-[#0F172A] text-white",
+    class: "bg-muted text-muted-foreground",
     icon: Tailwind,
   },
   NEXTJS: {
     name: "NextJS",
-    class: "bg-[#F3F4F6] text-[#000]",
+    class: "bg-muted text-muted-foreground",
     icon: NextJS,
   },
   HTML: {
     name: "HTML",
-    class: "bg-[#0F172A] text-white",
+    class: "bg-muted text-muted-foreground",
     icon: HTML,
   },
   REACT: {
     name: "React",
-    class: "bg-[#0F172A] text-white",
+    class: "bg-muted text-muted-foreground",
     icon: React,
   },
 };
@@ -55,9 +55,9 @@ const PROJECTS = [
     title: "Grocery Bud",
     description:
       "A minimal React app to manage your grocery list. Add, edit, or delete items with ease — all saved in your browser using local storage.",
-    link: "https://grocerybud-boshelljohan.netlify.app/", // reemplaza con tu URL
+    link: "https://grocerybud-boshelljohan.netlify.app/",
     github: "https://github.com/BoshellJohan/GroceryBud",
-    image: "/img/GroceryBud.png", // asegúrate de que coincida con tu carpeta
+    image: "/img/GroceryBud.png",
     tags: [TAGS.REACT],
   },
   {
@@ -90,53 +90,48 @@ const PROJECTS = [
 ];
 ---
 
-<main class="w-full max-w-[1000px] mx-auto px-4">
-  <ul id="cards" class="flex flex-col gap-[20rem] pb-[10vh]">
-    {
-      PROJECTS.map(({ image, title, description, tags, link, github }, idx) => (
-        <li
-          class="sticky top-[10vh]"
-          id={`card_${idx + 1}`}
-          style={`--index:${idx + 1};`}
-        >
-          <article class="flex flex-col bg-[#240046] rounded-lg p-6 shadow-2xl text-white min-h-auto">
-            <div>
-              <h1 class="text-3xl font-bold mb-2.5">{title}</h1>
-              <p class="text-base leading-relaxed">{description}</p>
-              <ul class="flex flex-wrap gap-3 mt-4">
-                {tags.map((tag) => (
-                  <li>
-                    <span
-                      class={`px-3 py-2 rounded-lg flex gap-2 text-xs justify-center items-center ${tag.class}`}
-                    >
-                      <tag.icon class="size-4" />
-                      <p class="font-semibold">{tag.name}</p>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+<ul class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <li>
+        <article class="flex flex-col h-full bg-card text-card-foreground border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="rounded-lg overflow-hidden border border-border mb-4 aspect-video bg-muted">
+            <img
+              class="w-full h-full object-cover"
+              src={image}
+              alt={title}
+              loading="lazy"
+              width="640"
+              height="360"
+            />
+          </div>
 
-            <div class="rounded-xl overflow-hidden max-h-[300px] w-full mt-2 mx-1">
-              <img
-                class="object-contain w-full h-full"
-                src={image}
-                alt={title}
-              />
-            </div>
+          <h3 class="text-xl font-bold mb-2">{title}</h3>
+          <p class="text-muted-foreground leading-relaxed mb-4">{description}</p>
 
-            <div class="flex gap-4 mt-4">
-              <a href={github} target="_blank" rel="noopener noreferrer">
-                <Button>View Code</Button>
-              </a>
+          <ul class="flex flex-wrap gap-2 mb-6">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`px-3 py-1.5 rounded-lg flex gap-2 text-xs items-center ${tag.class}`}
+                >
+                  <tag.icon class="size-4" aria-hidden="true" />
+                  <span class="font-semibold">{tag.name}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
 
-              <a href={link} target="_blank" rel="noopener noreferrer">
-                <Button>Visit Website</Button>
-              </a>
-            </div>
-          </article>
-        </li>
-      ))
-    }
-  </ul>
-</main>
+          <div class="flex gap-3 mt-auto">
+            <Button href={github} target="_blank" rel="noopener noreferrer">
+              View Code
+            </Button>
+            <Button href={link} target="_blank" rel="noopener noreferrer">
+              Visit Website
+            </Button>
+          </div>
+        </article>
+      </li>
+    ))
+  }
+</ul>
