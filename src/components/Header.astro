@@ -117,5 +117,15 @@ const NAV_LINKS = [
         sections.forEach(function (section) {
             observer.observe(section);
         });
+
+        function isAtBottom() {
+            return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (isAtBottom() && sections.length) {
+                setActive(sections[sections.length - 1].id);
+            }
+        }, { passive: true });
     });
 </script>
