@@ -16,21 +16,37 @@ const {description, title} = Astro.props
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description}/>
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<script is:inline>
+			(function () {
+				const stored = localStorage.getItem('theme');
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				const theme = stored || (prefersDark ? 'dark' : 'light');
+				if (theme === 'dark') {
+					document.documentElement.classList.add('dark');
+				}
+			})();
+		</script>
 	</head>
-	<body class="scroll-smooth">
+	<body class="scroll-smooth bg-background text-foreground">
 		<Header />
-		<slot />
+		<main class="w-full flex flex-col items-center">
+			<slot />
+		</main>
 		<Footer />
 	</body>
 </html>
 
 <style>
-	:root{
-		color-scheme: light dark;
+	:root {
+		color-scheme: light;
+	}
+
+	:root.dark {
+		color-scheme: dark;
 	}
 
 	* {
@@ -39,7 +55,7 @@ const {description, title} = Astro.props
 		box-sizing: border-box;
 	}
 
-	html{
+	html {
 		scroll-behavior: smooth;
 	}
 
@@ -52,7 +68,6 @@ const {description, title} = Astro.props
 		flex-flow: column nowrap;
 		justify-content: center;
 		align-items: center;
-		background-color: #10002B;
+		transition: background-color 200ms ease, color 200ms ease;
 	}
-
 </style>
