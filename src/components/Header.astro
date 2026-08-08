@@ -122,10 +122,13 @@ const NAV_LINKS = [
             return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
         }
 
-        window.addEventListener('scroll', function () {
+        function checkBottom() {
             if (isAtBottom() && sections.length) {
                 setActive(sections[sections.length - 1].id);
             }
-        }, { passive: true });
+        }
+
+        window.addEventListener('scroll', checkBottom, { passive: true });
+        checkBottom();
     });
 </script>
