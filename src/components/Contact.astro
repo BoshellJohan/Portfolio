@@ -3,44 +3,48 @@ import Copy from "./icons/Copy.astro";
 import Badge from "./Badge.astro";
 ---
 
-<article id="contact" class="w-full flex flex-col items-center gap-2 text-white rounded-lg py-0 mb-16 shadow-lg">
+<article class="w-full flex flex-col items-center gap-2 py-0 mb-16">
     <div class="w-full flex gap-2 flex-row mb-2">
         <p
             id="emailPar"
-            class="text-light p-2.5 rounded-lg border-solid border-[#5A189A] border-2 w-8/10"
+            class="text-card-foreground bg-card p-2.5 rounded-lg border border-border w-8/10"
         >johan.boshell@utp.edu.co</p>
-        <span
-            onclick="handleClick()"
-            class="cursor-pointer rounded-lg flex justify-center align-center py-2.5  dark:bg-[#5A189A] dark:hover:bg-[#7B2CBF] dark:focus:ring-purple-900 w-2/10"
+        <button
+            id="copyEmailButton"
+            type="button"
+            aria-label="Copy email address to clipboard"
+            class="cursor-pointer rounded-lg flex justify-center items-center py-2.5 bg-accent text-accent-foreground hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent w-2/10"
         >
-            <Copy class="size-5"/>
-        </span>
+            <Copy class="size-5" aria-hidden="true" />
+        </button>
     </div>
 
     <!-- Contenedor para el badge -->
     <div id="badgeContainer" class="self-start invisible">
-        <Badge class="mt-2">Copied!</Badge>
+        <Badge>Copied!</Badge>
     </div>
 </article>
 
 <script is:inline>
-    function handleClick() {
-        const input = document.getElementById("emailPar");
-        const badgeContainer = document.getElementById("badgeContainer");
+    (function () {
+        var button = document.getElementById("copyEmailButton");
+        var emailPar = document.getElementById("emailPar");
+        var badgeContainer = document.getElementById("badgeContainer");
+        var hideTimeout;
 
-        if (input && badgeContainer) {
-            navigator.clipboard.writeText(input.value)
-                .then(() => {
-                    badgeContainer.classList.remove("invisible")
-                    // Eliminar badge después de 3 segundos
-                    setTimeout(() => {
+        button.addEventListener("click", function () {
+            navigator.clipboard.writeText(emailPar.textContent.trim())
+                .then(function () {
+                    badgeContainer.classList.remove("invisible");
+                    clearTimeout(hideTimeout);
+                    hideTimeout = setTimeout(function () {
                         badgeContainer.classList.add("invisible");
                     }, 3000);
                 })
-                .catch((err) => {
+                .catch(function (err) {
                     console.error("Error al copiar el correo:", err);
                 });
-        }
-    }
+        });
+    })();
 </script>
 
