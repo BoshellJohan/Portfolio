@@ -17,19 +17,19 @@ const NAV_LINKS = [
     <nav
         aria-label="Primary"
         data-i18n-attr="aria-label:header.primaryNav"
-        class="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 bg-card/95 backdrop-blur border border-border px-3 py-2 rounded-2xl text-sm text-card-foreground shadow-sm"
+        class="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 max-[750px]:gap-1 bg-card/95 backdrop-blur border border-border px-3 py-2 max-[750px]:px-2 max-[750px]:py-1.5 rounded-2xl text-sm max-[750px]:text-xs text-card-foreground shadow-sm"
     >
-        <a href="#" data-i18n="nav.home" class="font-bold px-3 py-1.5 rounded-xl hover:bg-muted transition-colors whitespace-nowrap">Home</a>
+        <a href="#" data-i18n="nav.home" class="font-bold px-3 py-1.5 max-[750px]:px-2 max-[750px]:py-1 rounded-xl hover:bg-muted transition-colors whitespace-nowrap">Home</a>
 
-        <ul class="hidden sm:flex items-center gap-1">
+        <ul class="hidden sm:flex items-center gap-1 max-[750px]:gap-0.5">
             {NAV_LINKS.map(({ href, label, key }) => (
                 <li>
-                    <a href={href} data-nav-link data-i18n={key} class="font-medium px-3 py-1.5 rounded-xl hover:bg-muted transition-colors whitespace-nowrap" aria-current="false">{label}</a>
+                    <a href={href} data-nav-link data-i18n={key} class="font-medium px-3 py-1.5 max-[750px]:px-2 max-[750px]:py-1 rounded-xl hover:bg-muted transition-colors whitespace-nowrap" aria-current="false">{label}</a>
                 </li>
             ))}
         </ul>
 
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-1 max-[750px]:gap-0.5">
             <LanguageToggle />
             <ThemeToggle />
             <button
