@@ -18,28 +18,28 @@ import "../styles/global.css";
 >
 	<SectionContainer id="about">
 		<div class="flex flex-wrap items-center gap-4 mb-4 font-semibold">
-			<h1 class="text-4xl">
+			<h1 class="text-4xl" data-i18n="about.heading">
 				Hey, I'm <span class="text-accent">Johan</span> Boshell
 			</h1>
-			<Badge>Available for hire</Badge>
+			<Badge data-i18n="about.badge">Available for hire</Badge>
 		</div>
 		<AboutMe />
 	</SectionContainer>
 
 	<SectionContainer id="skills">
-		<h2 class="text-4xl font-semibold mb-6">Skills</h2>
+		<h2 class="text-4xl font-semibold mb-6" data-i18n="nav.skills">Skills</h2>
 		<Skills />
 	</SectionContainer>
 
 	<SectionContainer id="experience">
-		<h2 class="text-4xl font-semibold mb-6">Experience</h2>
+		<h2 class="text-4xl font-semibold mb-6" data-i18n="nav.experience">Experience</h2>
 		<Experience />
 	</SectionContainer>
 
 	<SectionContainer id="projects">
 		<h2 class="text-4xl font-semibold mb-6 flex gap-x-3 items-center">
 			<CodeIcon class="size-10" aria-hidden="true" />
-			Projects
+			<span data-i18n="nav.projects">Projects</span>
 		</h2>
 		<Projects />
 	</SectionContainer>
@@ -47,7 +47,7 @@ import "../styles/global.css";
 	<SectionContainer id="contact">
 		<h2 class="text-4xl font-semibold mb-6 flex gap-x-3 items-center">
 			<Mail class="size-10" aria-hidden="true" />
-			Contact
+			<span data-i18n="nav.contact">Contact</span>
 		</h2>
 		<Contact />
 	</SectionContainer>
