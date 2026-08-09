@@ -8,11 +8,12 @@ import Badge from "./Badge.astro";
         <p
             id="emailPar"
             class="text-card-foreground bg-card p-2.5 rounded-lg border border-border w-8/10"
-        >johan.boshell@utp.edu.co</p>
+        >boshelljohan@gmail.com</p>
         <button
             id="copyEmailButton"
             type="button"
             aria-label="Copy email address to clipboard"
+            data-i18n-attr="aria-label:contact.copyAriaLabel"
             class="cursor-pointer rounded-lg flex justify-center items-center py-2.5 bg-accent text-accent-foreground hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background w-2/10"
         >
             <Copy class="size-5" aria-hidden="true" />
@@ -21,7 +22,7 @@ import Badge from "./Badge.astro";
 
     <!-- Contenedor para el badge -->
     <div id="badgeContainer" class="self-start invisible" role="status">
-        <Badge>Copied!</Badge>
+        <Badge data-i18n="contact.copied">Copied!</Badge>
     </div>
 </article>
 
@@ -50,4 +51,3 @@ import Badge from "./Badge.astro";
         });
     })();
 </script>
-

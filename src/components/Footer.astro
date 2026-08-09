@@ -4,13 +4,13 @@ const year = new Date().getFullYear()
 
 <footer class="bg-background border-t border-border w-full">
     <div class="w-full mx-auto max-w-screen-xl p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-      <span class="text-sm text-muted-foreground">© {year} <a href="#" class="hover:underline">Johan Boshell™</a>. All Rights Reserved.</span>
+      <span class="text-sm text-muted-foreground" data-i18n="footer.copyright" data-year={year}>© {year} <a href="#" class="hover:underline">Johan Boshell™</a>. All Rights Reserved.</span>
       <ul class="flex flex-wrap items-center gap-x-6 text-sm font-medium text-muted-foreground">
         <li>
-            <a href="#about" class="hover:underline">About</a>
+            <a href="#about" data-i18n="nav.about" class="hover:underline">About</a>
         </li>
         <li>
-            <a href="#contact" class="hover:underline">Contact</a>
+            <a href="#contact" data-i18n="nav.contact" class="hover:underline">Contact</a>
         </li>
       </ul>
     </div>
