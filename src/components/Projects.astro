@@ -5,6 +5,15 @@ import HTML from "./icons/HTML.astro";
 import Tailwind from "./icons/Tailwind.astro";
 import NextJS from "./icons/NextJS.astro";
 import React from "./icons/React.astro";
+import Angular from "./icons/Angular.astro";
+import NestJS from "./icons/NestJS.astro";
+import PostgreSQL from "./icons/PostgreSQL.astro";
+import Prisma from "./icons/Prisma.astro";
+import Railway from "./icons/Railway.astro";
+import Neon from "./icons/Neon.astro";
+import Sass from "./icons/Sass.astro";
+import Java from "./icons/Java.astro";
+import SpringBoot from "./icons/SpringBoot.astro";
 import { translations } from "../i18n/translations.js";
 
 import Button from "./Button.astro";
@@ -40,28 +49,81 @@ const TAGS = {
     class: "bg-muted text-muted-foreground",
     icon: React,
   },
+  ANGULAR: {
+    name: "Angular",
+    class: "bg-muted text-muted-foreground",
+    icon: Angular,
+  },
+  NESTJS: {
+    name: "NestJS",
+    class: "bg-muted text-muted-foreground",
+    icon: NestJS,
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-muted text-muted-foreground",
+    icon: PostgreSQL,
+  },
+  PRISMA: {
+    name: "Prisma",
+    class: "bg-muted text-muted-foreground",
+    icon: Prisma,
+  },
+  RAILWAY: {
+    name: "Railway",
+    class: "bg-muted text-muted-foreground",
+    icon: Railway,
+  },
+  NEON: {
+    name: "Neon",
+    class: "bg-muted text-muted-foreground",
+    icon: Neon,
+  },
+  SASS: {
+    name: "Sass",
+    class: "bg-muted text-muted-foreground",
+    icon: Sass,
+  },
+  JAVA: {
+    name: "Java",
+    class: "bg-muted text-muted-foreground",
+    icon: Java,
+  },
+  SPRINGBOOT: {
+    name: "Spring Boot",
+    class: "bg-muted text-muted-foreground",
+    icon: SpringBoot,
+  },
 };
 
 const en = translations.en.projects;
 
 const PROJECTS = [
   {
-    key: "weatherQuery",
-    title: "Weather Query",
-    description: en.weatherQuery.description,
-    link: "https://weatherapi-boshell.netlify.app/",
-    github: "https://github.com/BoshellJohan/Weather_API",
-    image: "/img/weatherQuery.png",
-    tags: [TAGS.NEXTJS, TAGS.TAILWIND],
+    key: "utpMobile",
+    title: "UTP Móvil",
+    description: en.utpMobile.description,
+    playStore: "https://play.google.com/store/apps/details?id=co.edu.utp.utpMobile&hl=es_CO",
+    image: "/img/utp-app-movil.jpeg",
+    imageFit: "contain",
+    tags: [TAGS.POSTGRESQL],
   },
   {
-    key: "groceryBud",
-    title: "Grocery Bud",
-    description: en.groceryBud.description,
-    link: "https://grocerybud-boshelljohan.netlify.app/",
-    github: "https://github.com/BoshellJohan/GroceryBud",
-    image: "/img/GroceryBud.png",
-    tags: [TAGS.REACT],
+    key: "iceCreamWeb",
+    title: "Ice Cream Shop Manager",
+    description: en.iceCreamWeb.description,
+    github: "https://github.com/BoshellJohan/ice-cream-web",
+    image: "/img/dashboard-ice-cream-web.png",
+    tags: [TAGS.ANGULAR, TAGS.NESTJS, TAGS.POSTGRESQL, TAGS.PRISMA, TAGS.RAILWAY, TAGS.NEON],
+  },
+  {
+    key: "impostor",
+    title: "El Impostor",
+    description: en.impostor.description,
+    link: "https://impostorcol.netlify.app/",
+    github: "https://github.com/BoshellJohan/imposter-game-app",
+    image: "/img/impostor-settings.png",
+    tags: [TAGS.REACT, TAGS.SASS, TAGS.JAVA, TAGS.SPRINGBOOT],
   },
   {
     key: "tierlistMaker",
@@ -89,18 +151,36 @@ const PROJECTS = [
     github: "https://github.com/BoshellJohan/Minesweeper",
     image: "/img/Minesweeper.png",
     tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
-  }
+  },
+  {
+    key: "weatherQuery",
+    title: "Weather Query",
+    description: en.weatherQuery.description,
+    link: "https://weatherapi-boshell.netlify.app/",
+    github: "https://github.com/BoshellJohan/Weather_API",
+    image: "/img/weatherQuery.png",
+    tags: [TAGS.NEXTJS, TAGS.TAILWIND],
+  },
+  {
+    key: "groceryBud",
+    title: "Grocery Bud",
+    description: en.groceryBud.description,
+    link: "https://grocerybud-boshelljohan.netlify.app/",
+    github: "https://github.com/BoshellJohan/GroceryBud",
+    image: "/img/GroceryBud.png",
+    tags: [TAGS.REACT],
+  },
 ];
 ---
 
 <ul class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
   {
-    PROJECTS.map(({ key, image, title, description, tags, link, github }) => (
+    PROJECTS.map(({ key, image, title, description, tags, link, github, playStore, imageFit = "cover" }) => (
       <li>
         <article class="flex flex-col h-full bg-card text-card-foreground border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
           <div class="rounded-lg overflow-hidden border border-border mb-4 aspect-video bg-muted">
             <img
-              class="w-full h-full object-cover"
+              class={`w-full h-full ${imageFit === "contain" ? "object-contain" : "object-cover"}`}
               src={image}
               alt={title}
               loading="lazy"
@@ -125,13 +205,22 @@ const PROJECTS = [
             ))}
           </ul>
 
-          <div class="flex gap-3 mt-auto">
-            <Button href={github} target="_blank" rel="noopener noreferrer" data-i18n="projects.viewCode">
-              View Code
-            </Button>
-            <Button href={link} target="_blank" rel="noopener noreferrer" data-i18n="projects.visitWebsite">
-              Visit Website
-            </Button>
+          <div class="flex gap-3 flex-wrap mt-auto">
+            {github && (
+              <Button href={github} target="_blank" rel="noopener noreferrer" data-i18n="projects.viewCode">
+                View Code
+              </Button>
+            )}
+            {link && (
+              <Button href={link} target="_blank" rel="noopener noreferrer" data-i18n="projects.visitWebsite">
+                Visit Website
+              </Button>
+            )}
+            {playStore && (
+              <Button href={playStore} target="_blank" rel="noopener noreferrer" data-i18n="projects.viewPlayStore">
+                View on Play Store
+              </Button>
+            )}
           </div>
         </article>
       </li>
