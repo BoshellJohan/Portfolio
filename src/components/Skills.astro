@@ -16,33 +16,50 @@ import MongoDB from "./icons/MongoDB.astro";
 import Docker from "./icons/Docker.astro";
 import GCP from "./icons/GCP.astro";
 import GitLab from "./icons/GitLab.astro";
+import Nx from "./icons/Nx.astro";
+import Terraform from "./icons/Terraform.astro";
+import Railway from "./icons/Railway.astro";
+import Netlify from "./icons/Netlify.astro";
+import GitHubActions from "./icons/GitHubActions.astro";
+import Neon from "./icons/Neon.astro";
+import Prisma from "./icons/Prisma.astro";
 
 const SKILLS = [
-  { name: "JavaScript", icon: Javascript },
-  { name: "TypeScript", icon: TypeScript },
-  { name: "React", icon: React },
-  { name: "Next.js", icon: NextJS },
-  { name: "Astro", icon: AstroIcon },
-  { name: "Tailwind CSS", icon: Tailwind },
-  { name: "HTML", icon: HTML },
-  { name: "CSS", icon: CSS },
-  { name: "Git", icon: Git },
-  { name: "Angular", icon: Angular },
-  { name: "Node.js", icon: NodeJS },
-  { name: "NestJS", icon: NestJS },
-  { name: "PostgreSQL", icon: PostgreSQL },
-  { name: "MongoDB", icon: MongoDB },
-  { name: "Docker", icon: Docker },
-  { name: "GCP", icon: GCP },
-  { name: "GitLab", icon: GitLab },
+  { name: "Angular", icon: Angular, years: 3 },
+  { name: "TypeScript", icon: TypeScript, years: 3 },
+  { name: "NestJS", icon: NestJS, years: 3 },
+  { name: "Node.js", icon: NodeJS, years: 3 },
+  { name: "PostgreSQL", icon: PostgreSQL, years: 3 },
+  { name: "Prisma", icon: Prisma, years: 3 },
+  { name: "JavaScript", icon: Javascript, years: 3 },
+  { name: "Git", icon: Git, years: 3 },
+  { name: "Nx", icon: Nx, years: 3 },
+  { name: "Terraform", icon: Terraform, years: 3 },
+  { name: "Railway", icon: Railway, years: 3 },
+  { name: "Netlify", icon: Netlify, years: 3 },
+  { name: "GitHub Actions", icon: GitHubActions, years: 3 },
+  { name: "Neon", icon: Neon, years: 3 },
+  { name: "GCP", icon: GCP, years: 3 },
+  { name: "GitLab", icon: GitLab, years: 3 },
+  { name: "Docker", icon: Docker, years: 3 },
+  { name: "MongoDB", icon: MongoDB, years: 3 },
+  { name: "HTML", icon: HTML, years: 3 },
+  { name: "CSS", icon: CSS, years: 3 },
+  { name: "Tailwind CSS", icon: Tailwind, years: 3 },
+  { name: "Astro", icon: AstroIcon, years: 3 },
+  { name: "Next.js", icon: NextJS, years: 3 },
+  { name: "React", icon: React, years: 3 },
 ];
 ---
 
 <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-  {SKILLS.map(({ name, icon: Icon }) => (
-    <li class="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-card-foreground">
-      <Icon class="size-6 shrink-0" aria-hidden="true" />
-      <span class="font-medium">{name}</span>
+  {SKILLS.map(({ name, icon: Icon, years }) => (
+    <li class="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 text-card-foreground">
+      <span class="flex items-center gap-3">
+        <Icon class="size-6 shrink-0" aria-hidden="true" />
+        <span class="font-medium">{name}</span>
+      </span>
+      <span class="text-xs text-muted-foreground shrink-0">{years}+ <span data-i18n="skills.years">years</span></span>
     </li>
   ))}
 </ul>
