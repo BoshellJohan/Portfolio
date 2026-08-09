@@ -13,14 +13,14 @@ import Badge from "./Badge.astro";
             id="copyEmailButton"
             type="button"
             aria-label="Copy email address to clipboard"
-            class="cursor-pointer rounded-lg flex justify-center items-center py-2.5 bg-accent text-accent-foreground hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent w-2/10"
+            class="cursor-pointer rounded-lg flex justify-center items-center py-2.5 bg-accent text-accent-foreground hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background w-2/10"
         >
             <Copy class="size-5" aria-hidden="true" />
         </button>
     </div>
 
     <!-- Contenedor para el badge -->
-    <div id="badgeContainer" class="self-start invisible">
+    <div id="badgeContainer" class="self-start invisible" role="status">
         <Badge>Copied!</Badge>
     </div>
 </article>
@@ -33,6 +33,9 @@ import Badge from "./Badge.astro";
         var hideTimeout;
 
         button.addEventListener("click", function () {
+            if (!navigator.clipboard) {
+                return;
+            }
             navigator.clipboard.writeText(emailPar.textContent.trim())
                 .then(function () {
                     badgeContainer.classList.remove("invisible");

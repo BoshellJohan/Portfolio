@@ -99,7 +99,8 @@ const NAV_LINKS = [
             navLinks.forEach(function (link) {
                 var isActive = link.getAttribute('href') === '#' + id;
                 link.setAttribute('aria-current', isActive ? 'true' : 'false');
-                link.classList.toggle('bg-muted', isActive);
+                link.classList.toggle('bg-accent/10', isActive);
+                link.classList.toggle('text-accent', isActive);
             });
         }
 
@@ -135,6 +136,8 @@ const NAV_LINKS = [
                 });
             }
         }, { passive: true });
+
+        window.addEventListener('resize', updateActiveSection);
 
         updateActiveSection();
     });
