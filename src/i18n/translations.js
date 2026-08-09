@@ -13,6 +13,9 @@ export const translations = {
       closeMenu: "Close menu",
       primaryNav: "Primary",
     },
+    skills: {
+      years: "years",
+    },
     theme: {
       switchToDark: "Switch to dark theme",
       switchToLight: "Switch to light theme",
@@ -54,6 +57,7 @@ export const translations = {
     projects: {
       viewCode: "View Code",
       visitWebsite: "Visit Website",
+      viewPlayStore: "View on Play Store",
       weatherQuery: {
         description: "Enter a city and get its weather! This app uses the OpenWeather API to show a quick summary of the weather forecast.",
       },
@@ -68,6 +72,15 @@ export const translations = {
       },
       minesweeper: {
         description: "A classic Minesweeper game built using vanilla JavaScript, HTML, and CSS — no frameworks, just raw logic and DOM manipulation.",
+      },
+      utpMobile: {
+        description: "The official mobile app for Universidad Tecnológica de Pereira, live on Google Play and the App Store with 10,000+ downloads. I contributed the backend REST APIs, integrating multiple institutional microservices and complex PostgreSQL/Oracle queries across 30+ modules. Source is institutional and not publicly shareable.",
+      },
+      impostor: {
+        description: "A party game for a group sharing one device — everyone gets the same secret word except the impostor, who has to bluff their way through. Built with React and Zustand for state management, backed by a Spring Boot + MongoDB API for the word bank, with a weighted-random selection algorithm that makes repeat impostors progressively less likely.",
+      },
+      iceCreamWeb: {
+        description: "An internal web app for a real ice cream startup, used daily from a tablet to manage orders, inventory, and product customization — flavors, toppings, and combo pricing. Built with Angular and a NestJS + Prisma + PostgreSQL backend, with role-based access, discount coupons, and sales/cash-reconciliation analytics.",
       },
     },
     contact: {
@@ -95,6 +108,9 @@ export const translations = {
       openMenu: "Abrir menú",
       closeMenu: "Cerrar menú",
       primaryNav: "Principal",
+    },
+    skills: {
+      years: "años",
     },
     theme: {
       switchToDark: "Cambiar a tema oscuro",
@@ -137,6 +153,7 @@ export const translations = {
     projects: {
       viewCode: "Ver código",
       visitWebsite: "Visitar sitio",
+      viewPlayStore: "Ver en Play Store",
       weatherQuery: {
         description: "¡Ingresa una ciudad y obtén su clima! Esta aplicación usa la API de OpenWeather para mostrar un resumen rápido del pronóstico del tiempo.",
       },
@@ -151,6 +168,15 @@ export const translations = {
       },
       minesweeper: {
         description: "Un juego clásico de Buscaminas construido con JavaScript puro, HTML y CSS — sin frameworks, solo lógica pura y manipulación del DOM.",
+      },
+      utpMobile: {
+        description: "La aplicación móvil oficial de la Universidad Tecnológica de Pereira, disponible en Google Play y App Store con más de 10.000 descargas. Contribuí en las APIs REST del backend, integrando múltiples microservicios institucionales y consultas complejas en PostgreSQL/Oracle a través de más de 30 módulos. El código es institucional y no se puede compartir públicamente.",
+      },
+      impostor: {
+        description: "Un juego de fiesta para jugar en un solo dispositivo — todos los jugadores reciben la misma palabra secreta, excepto el impostor, que debe disimular para no ser descubierto. Construido con React y Zustand para el manejo del estado, respaldado por una API en Spring Boot + MongoDB para el banco de palabras, con un algoritmo de selección ponderada que hace cada vez menos probable repetir como impostor.",
+      },
+      iceCreamWeb: {
+        description: "Una aplicación web interna para una startup real de helados, usada a diario desde una tablet para gestionar pedidos, inventario y personalización de productos — sabores, toppings y precios combinados. Construida con Angular y un backend en NestJS + Prisma + PostgreSQL, con acceso por roles, cupones de descuento y analíticas de ventas y conciliación de caja.",
       },
     },
     contact: {
