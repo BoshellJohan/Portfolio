@@ -6,6 +6,7 @@ import Close from './icons/Close.astro'
 const NAV_LINKS = [
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
+    { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
     { href: '#contact', label: 'Contact' },
 ]
@@ -90,7 +91,7 @@ const NAV_LINKS = [
             link.addEventListener('click', closeMenu);
         });
 
-        var sectionIds = ['about', 'skills', 'projects', 'contact'];
+        var sectionIds = ['about', 'skills', 'experience', 'projects', 'contact'];
         var sections = sectionIds
             .map(function (id) { return document.getElementById(id); })
             .filter(Boolean);
