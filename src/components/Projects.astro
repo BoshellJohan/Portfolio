@@ -5,6 +5,7 @@ import HTML from "./icons/HTML.astro";
 import Tailwind from "./icons/Tailwind.astro";
 import NextJS from "./icons/NextJS.astro";
 import React from "./icons/React.astro";
+import { translations } from "../i18n/translations.js";
 
 import Button from "./Button.astro";
 
@@ -41,47 +42,49 @@ const TAGS = {
   },
 };
 
+const en = translations.en.projects;
+
 const PROJECTS = [
   {
+    key: "weatherQuery",
     title: "Weather Query",
-    description:
-      "Enter a city and get its weather! This app uses the OpenWeather API to show a quick summary of the weather forecast.",
+    description: en.weatherQuery.description,
     link: "https://weatherapi-boshell.netlify.app/",
     github: "https://github.com/BoshellJohan/Weather_API",
     image: "/img/weatherQuery.png",
     tags: [TAGS.NEXTJS, TAGS.TAILWIND],
   },
   {
+    key: "groceryBud",
     title: "Grocery Bud",
-    description:
-      "A minimal React app to manage your grocery list. Add, edit, or delete items with ease — all saved in your browser using local storage.",
+    description: en.groceryBud.description,
     link: "https://grocerybud-boshelljohan.netlify.app/",
     github: "https://github.com/BoshellJohan/GroceryBud",
     image: "/img/GroceryBud.png",
     tags: [TAGS.REACT],
   },
   {
+    key: "tierlistMaker",
     title: "Tierlist Maker",
-    description:
-      "An interactive Tier List Maker built with HTML, CSS, and JavaScript that lets users upload images, organize them into ranked tiers, and export the final tier list as an image. Ideal for ranking characters, games, foods, or anything visual—completely offline and fully customizable",
+    description: en.tierlistMaker.description,
     link: "https://tierlistmaker-boshelljohan.netlify.app/",
     github: "https://github.com/BoshellJohan",
     image: "/img/tierlist-maker.png",
     tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
   },
   {
+    key: "cssMemorama",
     title: "CSS Memorama",
-    description:
-      "A memory matching game built entirely with HTML and CSS — no JavaScript. Uses pseudoclasses and CSS selectors to manage card flipping and matching logic.",
+    description: en.cssMemorama.description,
     link: "https://memorama-boshelljohan.netlify.app/",
     github: "https://github.com/BoshellJohan/Memograma-Final-Version",
     image: "/img/Memorama.png",
     tags: [TAGS.HTML, TAGS.CSS],
   },
   {
+    key: "minesweeper",
     title: "MineSweeper",
-    description:
-      "A classic Minesweeper game built using vanilla JavaScript, HTML, and CSS — no frameworks, just raw logic and DOM manipulation.",
+    description: en.minesweeper.description,
     link: "https://minesweeper-boshell.netlify.app/",
     github: "https://github.com/BoshellJohan/Minesweeper",
     image: "/img/Minesweeper.png",
@@ -92,7 +95,7 @@ const PROJECTS = [
 
 <ul class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    PROJECTS.map(({ key, image, title, description, tags, link, github }) => (
       <li>
         <article class="flex flex-col h-full bg-card text-card-foreground border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
           <div class="rounded-lg overflow-hidden border border-border mb-4 aspect-video bg-muted">
@@ -107,7 +110,7 @@ const PROJECTS = [
           </div>
 
           <h3 class="text-xl font-bold mb-2">{title}</h3>
-          <p class="text-muted-foreground leading-relaxed mb-4">{description}</p>
+          <p class="text-muted-foreground leading-relaxed mb-4" data-i18n={`projects.${key}.description`}>{description}</p>
 
           <ul class="flex flex-wrap gap-2 mb-6">
             {tags.map((tag) => (
@@ -123,10 +126,10 @@ const PROJECTS = [
           </ul>
 
           <div class="flex gap-3 mt-auto">
-            <Button href={github} target="_blank" rel="noopener noreferrer">
+            <Button href={github} target="_blank" rel="noopener noreferrer" data-i18n="projects.viewCode">
               View Code
             </Button>
-            <Button href={link} target="_blank" rel="noopener noreferrer">
+            <Button href={link} target="_blank" rel="noopener noreferrer" data-i18n="projects.visitWebsite">
               Visit Website
             </Button>
           </div>
