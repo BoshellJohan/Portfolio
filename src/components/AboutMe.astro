@@ -46,8 +46,8 @@ const SOCIAL = [
         />
         <!-- Profile text -->
         <div class="text-left">
-          <p class="text-2xl font-semibold mb-4">Full Stack Developer from Pereira, Colombia</p>
-          <p class="text-base leading-relaxed max-w-xl text-muted-foreground">
+          <p class="text-2xl font-semibold mb-4" data-i18n="about.subheadline">Full Stack Developer from Pereira, Colombia</p>
+          <p class="text-base leading-relaxed max-w-xl text-muted-foreground" data-i18n="about.bio">
             I design and build web applications across the full stack — from responsive interfaces to the APIs and services behind them. My day-to-day toolkit spans <span class="text-accent font-medium">Angular</span>, <span class="text-accent font-medium">TypeScript</span>, <span class="text-accent font-medium">React</span>, <span class="text-accent font-medium">Node.js</span> and <span class="text-accent font-medium">NestJS</span>, working with REST APIs, service-oriented architectures, and relational databases like PostgreSQL.
             I have hands-on experience modernizing legacy systems, migrating Firebase-based apps to custom backend architectures, and keeping cloud deployments running smoothly. I love learning, solving problems, and building products that make a difference.
           </p>
@@ -63,7 +63,7 @@ const SOCIAL = [
                     {tag.icon && <tag.icon class="size-4" aria-hidden="true" />}
 
                     {tag.name != "CV" && <a href={tag.link} target="_blank" rel="noopener noreferrer">{tag.name}</a>}
-                    {tag.name == "CV" && <a href={tag.link} target="_blank" download="CV-JohanBoshell">{tag.name}</a>}
+                    {tag.name == "CV" && <a href={tag.link} data-i18n-attr="href:about.cvHref" target="_blank" download="CV-JohanBoshell">{tag.name}</a>}
                 </span>
             </li>
         ))}
