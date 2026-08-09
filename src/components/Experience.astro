@@ -1,28 +1,24 @@
 ---
+import { translations } from "../i18n/translations.js";
+
+const en = translations.en.experience;
+
 const EXPERIENCE = [
   {
-    role: "Full Stack Developer",
+    key: "prestemonos",
+    role: en.prestemonos.role,
     company: "Prestémonos",
-    dates: "Dec 2023 – Present",
+    dates: en.prestemonos.dates,
     location: "Dosquebradas, Colombia",
-    highlights: [
-      "Led the evolution of a Firebase-based architecture toward a custom Node.js backend, reducing backend coupling by ~30% and improving maintainability across 6 core modules.",
-      "Designed and deployed a marketing-automation microservice on Google Cloud Platform (GCP), contributing to a 23% increase in requested credits.",
-      "Modernized 2 legacy Angular 6 applications to current Angular versions, reducing technical debt and improving frontend tooling compatibility.",
-      "Designed RESTful APIs supporting 40+ endpoints, and managed cloud deployments maintaining ~99% service availability.",
-    ],
+    highlights: en.prestemonos.highlights,
   },
   {
-    role: "Backend Developer",
+    key: "utp",
+    role: en.utp.role,
     company: "Universidad Tecnológica de Pereira (UTP)",
-    dates: "Aug 2025 – Present",
+    dates: en.utp.dates,
     location: "Pereira, Colombia",
-    highlights: [
-      "Contributed to the UTP Mobile API's backend, supporting an app with 10,000+ downloads on Google Play, also distributed on the App Store.",
-      "Designed reusable REST APIs and decoupled service modules consumed by multiple institutional applications.",
-      "Developed and maintained PostgreSQL/Oracle database integrations across 30+ institutional modules.",
-      "Contributed to legacy modernization and delivered 20+ features/releases via Scrum and GitLab-based merge-request workflows.",
-    ],
+    highlights: en.utp.highlights,
   },
 ];
 ---
@@ -33,14 +29,14 @@ const EXPERIENCE = [
       <span class="absolute -left-[7px] mt-1.5 size-3 rounded-full border-2 border-background bg-accent"></span>
       <div class="flex flex-col gap-2 md:flex-row md:gap-8">
         <div class="md:w-64 md:shrink-0">
-          <h3 class="text-lg font-bold text-accent">{job.role}</h3>
+          <h3 class="text-lg font-bold text-accent" data-i18n={`experience.${job.key}.role`}>{job.role}</h3>
           <p class="font-semibold">{job.company}</p>
-          <p class="text-sm text-muted-foreground">{job.dates}</p>
+          <p class="text-sm text-muted-foreground" data-i18n={`experience.${job.key}.dates`}>{job.dates}</p>
           <p class="text-sm text-muted-foreground">{job.location}</p>
         </div>
         <ul class="list-outside list-disc pl-5 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
-          {job.highlights.map((highlight) => (
-            <li>{highlight}</li>
+          {job.highlights.map((highlight, index) => (
+            <li data-i18n={`experience.${job.key}.highlights.${index}`}>{highlight}</li>
           ))}
         </ul>
       </div>
