@@ -9,12 +9,13 @@ import CodeIcon from "../components/icons/CodeIcon.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Contact from "../components/Contact.astro";
 import Mail from "../components/icons/Mail.astro";
+import { translations } from "../i18n/translations.js";
 import "../styles/global.css";
 ---
 
 <Layout
-	title="Johan Boshell - Full Stack Developer"
-	description="Full Stack Developer from Pereira, Colombia. Angular, TypeScript, React, Node.js, NestJS, PostgreSQL."
+	title={translations.en.meta.title}
+	description={translations.en.meta.description}
 >
 	<SectionContainer id="about">
 		<div class="flex flex-wrap items-center gap-4 mb-4 font-semibold">

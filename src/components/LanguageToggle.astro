@@ -39,8 +39,10 @@
             localStorage.setItem(STORAGE_KEY, next);
             if (window.applyTranslations) {
                 window.applyTranslations(next);
+                updateButton(next);
+            } else {
+                updateButton(currentLang());
             }
-            updateButton(next);
         });
     })();
 </script>

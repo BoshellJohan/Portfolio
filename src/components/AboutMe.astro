@@ -2,6 +2,7 @@
 import LinkedIn from './icons/LinkedIn.astro'
 import Github from './icons/Github.astro'
 import Mail from './icons/Mail.astro'
+import { translations } from '../i18n/translations.js'
 
 
 const SOCIAL = [
@@ -19,7 +20,7 @@ const SOCIAL = [
     },
     {
         name: "CV",
-        link: "/cv_english.pdf",
+        link: translations.en.about.cvHref,
         icon: null,
         class: "bg-accent text-accent-foreground hover:opacity-90"
     },
@@ -40,6 +41,7 @@ const SOCIAL = [
         <img
           src="/img/profile.jpg"
           alt="Photo of Johan"
+          data-i18n-attr="alt:about.photoAlt"
           class="w-40 h-40 rounded-full object-cover border-4 border-border shadow-md"
           width="160"
           height="160"

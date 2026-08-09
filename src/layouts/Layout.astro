@@ -75,7 +75,7 @@ const {description, title} = Astro.props
 
 			window.applyTranslations = applyTranslations;
 
-			var storedLang = localStorage.getItem('lang') || 'en';
+			var storedLang = localStorage.getItem('lang') === 'es' ? 'es' : 'en';
 			applyTranslations(storedLang);
 		</script>
 	</head>

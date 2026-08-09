@@ -16,6 +16,7 @@ const NAV_LINKS = [
 <header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] sm:w-auto">
     <nav
         aria-label="Primary"
+        data-i18n-attr="aria-label:header.primaryNav"
         class="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 bg-card/95 backdrop-blur border border-border px-3 py-2 rounded-2xl text-sm text-card-foreground shadow-sm"
     >
         <a href="#" data-i18n="nav.home" class="font-bold px-3 py-1.5 rounded-xl hover:bg-muted transition-colors">Home</a>
@@ -146,5 +147,6 @@ const NAV_LINKS = [
         window.addEventListener('resize', updateActiveSection);
 
         updateActiveSection();
+        closeMenu();
     });
 </script>

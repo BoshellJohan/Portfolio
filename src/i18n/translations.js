@@ -11,6 +11,7 @@ export const translations = {
     header: {
       openMenu: "Open menu",
       closeMenu: "Close menu",
+      primaryNav: "Primary",
     },
     theme: {
       switchToDark: "Switch to dark theme",
@@ -26,6 +27,7 @@ export const translations = {
       subheadline: "Full Stack Developer from Pereira, Colombia",
       bio: 'I design and build web applications across the full stack — from responsive interfaces to the APIs and services behind them. My day-to-day toolkit spans <span class="text-accent font-medium">Angular</span>, <span class="text-accent font-medium">TypeScript</span>, <span class="text-accent font-medium">React</span>, <span class="text-accent font-medium">Node.js</span> and <span class="text-accent font-medium">NestJS</span>, working with REST APIs, service-oriented architectures, and relational databases like PostgreSQL. I have hands-on experience modernizing legacy systems, migrating Firebase-based apps to custom backend architectures, and keeping cloud deployments running smoothly. I love learning, solving problems, and building products that make a difference.',
       cvHref: "/cv_english.pdf",
+      photoAlt: "Photo of Johan",
     },
     experience: {
       prestemonos: {
@@ -92,6 +94,7 @@ export const translations = {
     header: {
       openMenu: "Abrir menú",
       closeMenu: "Cerrar menú",
+      primaryNav: "Principal",
     },
     theme: {
       switchToDark: "Cambiar a tema oscuro",
@@ -107,6 +110,7 @@ export const translations = {
       subheadline: "Desarrollador Full Stack de Pereira, Colombia",
       bio: 'Diseño y desarrollo aplicaciones web a través de todo el stack — desde interfaces responsivas hasta las APIs y servicios detrás de ellas. Mi día a día incluye <span class="text-accent font-medium">Angular</span>, <span class="text-accent font-medium">TypeScript</span>, <span class="text-accent font-medium">React</span>, <span class="text-accent font-medium">Node.js</span> y <span class="text-accent font-medium">NestJS</span>, trabajando con APIs REST, arquitecturas orientadas a servicios y bases de datos relacionales como PostgreSQL. Tengo experiencia práctica modernizando sistemas legacy, migrando aplicaciones basadas en Firebase hacia arquitecturas de backend propias, y manteniendo despliegues en la nube funcionando sin problemas. Me encanta aprender, resolver problemas y construir productos que marquen la diferencia.',
       cvHref: "/cv_spanish.pdf",
+      photoAlt: "Foto de Johan",
     },
     experience: {
       prestemonos: {
@@ -115,7 +119,7 @@ export const translations = {
         highlights: [
           "Lideré la evolución de una arquitectura basada en Firebase hacia un backend propio en Node.js, reduciendo el acoplamiento del backend en ~30% y mejorando la mantenibilidad en 6 módulos principales.",
           "Diseñé e implementé un microservicio de automatización de marketing en Google Cloud Platform (GCP), contribuyendo a un incremento del 23% en las solicitudes de crédito.",
-          "Moderné 2 aplicaciones legacy de Angular 6 a versiones actuales de Angular, reduciendo la deuda técnica y mejorando la compatibilidad con las herramientas frontend actuales.",
+          "Modernicé 2 aplicaciones legacy de Angular 6 a versiones actuales de Angular, reduciendo la deuda técnica y mejorando la compatibilidad con las herramientas frontend actuales.",
           "Diseñé APIs RESTful soportando más de 40 endpoints, y gestioné despliegues en la nube manteniendo ~99% de disponibilidad del servicio.",
         ],
       },
@@ -131,8 +135,8 @@ export const translations = {
       },
     },
     projects: {
-      viewCode: "Ver Código",
-      visitWebsite: "Visitar Sitio",
+      viewCode: "Ver código",
+      visitWebsite: "Visitar sitio",
       weatherQuery: {
         description: "¡Ingresa una ciudad y obtén su clima! Esta aplicación usa la API de OpenWeather para mostrar un resumen rápido del pronóstico del tiempo.",
       },
