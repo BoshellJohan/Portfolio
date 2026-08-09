@@ -8,6 +8,9 @@ import Moon from './icons/Moon.astro'
     type="button"
     class="inline-flex items-center justify-center size-11 rounded-xl hover:bg-muted transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
     aria-label="Switch to dark theme"
+    data-label-dark="Switch to dark theme"
+    data-label-light="Switch to light theme"
+    data-i18n-attr="data-label-dark:theme.switchToDark;data-label-light:theme.switchToLight"
 >
     <Sun class="size-5 hidden dark:block" aria-hidden="true" />
     <Moon class="size-5 block dark:hidden" aria-hidden="true" />
@@ -19,7 +22,8 @@ import Moon from './icons/Moon.astro'
         var toggle = document.getElementById('theme-toggle');
 
         function labelFor(theme) {
-            return theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+            var attr = theme === 'dark' ? 'data-label-light' : 'data-label-dark';
+            return toggle.getAttribute(attr);
         }
 
         function currentTheme() {

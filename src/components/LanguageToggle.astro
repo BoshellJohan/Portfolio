@@ -1,0 +1,46 @@
+---
+---
+
+<button
+    id="lang-toggle"
+    type="button"
+    class="inline-flex items-center justify-center size-11 rounded-xl hover:bg-muted transition-colors cursor-pointer text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    aria-label="Switch to Spanish"
+    data-label-es="Switch to Spanish"
+    data-label-en="Switch to English"
+    data-i18n-attr="data-label-es:lang.switchToSpanish;data-label-en:lang.switchToEnglish"
+>ES</button>
+
+<script is:inline>
+    (function () {
+        var STORAGE_KEY = 'lang';
+        var toggle = document.getElementById('lang-toggle');
+
+        function labelFor(lang) {
+            var attr = lang === 'es' ? 'data-label-en' : 'data-label-es';
+            return toggle.getAttribute(attr);
+        }
+
+        function currentLang() {
+            return document.documentElement.lang === 'es' ? 'es' : 'en';
+        }
+
+        function updateButton(lang) {
+            toggle.textContent = lang === 'es' ? 'EN' : 'ES';
+            toggle.setAttribute('aria-label', labelFor(lang));
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            updateButton(currentLang());
+        });
+
+        toggle.addEventListener('click', function () {
+            var next = currentLang() === 'es' ? 'en' : 'es';
+            localStorage.setItem(STORAGE_KEY, next);
+            if (window.applyTranslations) {
+                window.applyTranslations(next);
+            }
+            updateButton(next);
+        });
+    })();
+</script>
