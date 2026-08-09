@@ -30,6 +30,54 @@ const {description, title} = Astro.props
 				}
 			})();
 		</script>
+		<script>
+			import { translations } from '../i18n/translations.js';
+
+			function resolveKey(lang, key) {
+				return key.split('.').reduce(function (obj, part) {
+					return obj && obj[part] !== undefined ? obj[part] : undefined;
+				}, translations[lang]);
+			}
+
+			function applyTranslations(lang) {
+				document.documentElement.lang = lang;
+
+				document.querySelectorAll('[data-i18n]').forEach(function (el) {
+					var key = el.getAttribute('data-i18n');
+					var value = resolveKey(lang, key);
+					if (typeof value !== 'string') return;
+					if (value.indexOf('{year}') !== -1) {
+						var year = el.getAttribute('data-year');
+						if (year) value = value.replace('{year}', year);
+					}
+					el.innerHTML = value;
+				});
+
+				document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
+					var spec = el.getAttribute('data-i18n-attr');
+					spec.split(';').forEach(function (pair) {
+						var idx = pair.indexOf(':');
+						if (idx === -1) return;
+						var attr = pair.slice(0, idx).trim();
+						var key = pair.slice(idx + 1).trim();
+						var value = resolveKey(lang, key);
+						if (typeof value === 'string') el.setAttribute(attr, value);
+					});
+				});
+
+				var titleValue = resolveKey(lang, 'meta.title');
+				if (titleValue) document.title = titleValue;
+
+				var descValue = resolveKey(lang, 'meta.description');
+				var metaDesc = document.querySelector('meta[name="description"]');
+				if (metaDesc && descValue) metaDesc.setAttribute('content', descValue);
+			}
+
+			window.applyTranslations = applyTranslations;
+
+			var storedLang = localStorage.getItem('lang') || 'en';
+			applyTranslations(storedLang);
+		</script>
 	</head>
 	<body class="scroll-smooth bg-background text-foreground">
 		<Header />
